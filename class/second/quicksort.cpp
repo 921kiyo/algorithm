@@ -2,17 +2,18 @@
 
 using namespace std;
 
-int partition(int array[], int left, int right){
+int partition(int array[], const int right, const int left){
 
 }
 
-void quicksort(int array[], int left, int right, int size){
+void quicksort(int array[], const int left, const int right, const int size){
   if(left >= right){
     return;
   }
-  int part = partition(array, left, right);
 
+  int
 }
+
 
 int main(){
   int array[8] = {110, 5, 10, 3, 22, 100, 1, 23};
