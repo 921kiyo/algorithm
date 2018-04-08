@@ -3,12 +3,39 @@
 
 using namespace std;
 
-
 class Graph{
   int V;
   list<int> *adj;
-};
 
+  void DFSUtil(int v, bool visited[]){
+    visited[v] = true;
+    cout << v << " ";
+
+    list<int>::iterator i;
+    for(i = adj[v].begin(); i != adj[v].end(); i++){
+      if(!visited[*i]){
+        DFSUtil(*i, visited);
+      }
+    }
+  }
+public:
+  Graph(int v){
+    V = v;
+    adj = new list<int>[v];
+  }
+  void addEdge(int v, int w){
+    adj[v].push_back(w);
+  }
+  void DFS(int s){
+    // Make all vertices as not visited
+    bool *visited = new bool[V];
+    for(int i = 0; i<V; i++){
+      visited[i] = false;
+    }
+
+    DFSUtil(s, visited);
+  }
+};
 
 int main(){
   Graph g(4);

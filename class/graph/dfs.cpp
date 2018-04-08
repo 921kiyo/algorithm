@@ -7,9 +7,9 @@ using namespace std;
 
 class Graph
 {
-  int V;
-  list<int> *adj;
-  void DFSUtil(int v, bool visited[]);
+  int V; // Not of vertices
+  list<int> *adj; // Pointer to an array containing adjacency lists
+  void DFSUtil(int v, bool visited[]); // a recursive function used by DFS
 
 public:
   Graph(int V);
@@ -29,9 +29,11 @@ void Graph::addEdge(int v, int w){
 }
 
 void Graph::DFSUtil(int v, bool visited[]){
+  // Mark the current node as visited and print it
   visited[v] = true;
   cout << v << " ";
 
+  // Resurse for all the vertices adjacent to this vertex
   list<int>::iterator i;
   for(i = adj[v].begin(); i != adj[v].end(); ++i){
     if(!visited[*i]){
@@ -41,6 +43,7 @@ void Graph::DFSUtil(int v, bool visited[]){
 }
 
 void Graph::DFS(int s){
+  // Make all the vertices as not visited
   bool *visited = new bool[V];
   for(int i = 0; i < V; i++){
     visited[i] = false;
