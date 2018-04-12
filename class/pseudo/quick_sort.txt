@@ -1,0 +1,21 @@
+QuickSort(A, L, R){
+  if R < L+2
+    return
+  P = Partition(A,L,R)
+  QuickSort(A,L,P)
+  QuickSort(A,P+1, R)
+}
+
+Partition(A, L, R){
+  i=j=1 // both partitions are empty
+  pivot = r-1
+  while(i < pivot){
+    if A[i] < A[pivot]{
+      swap(A,i,j)
+      j++
+    }
+    i++
+  }
+  swap(A, pivot, j) // j index is where pivot index should be, so swap
+  return j
+}

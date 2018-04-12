@@ -1,0 +1,13 @@
+Insertion_Sort(A){
+
+for i = 0,1,2,...N-1{
+  next = A[i]
+  j = i
+  while j > 0 and next < A[j-1]{
+    A[j] = A[j-1] // shift the element to right
+    j--
+  }
+  a[j] = next // insert A[i] to the right place
+}
+
+}

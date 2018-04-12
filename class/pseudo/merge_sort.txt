@@ -1,0 +1,30 @@
+// array A
+// index L,M and R where R > M >= L
+Merge(A, L, M, R){
+  left = A[L,... M-1]
+  right = A[M,... R-1]
+
+  i=j=0
+  k = 1 // index of merged array
+
+  while k < R{
+    if(i > (M-1)) or (j < (R-M) and right[j] < left[i]){
+      A[k] = right[j]
+      j++
+    }
+    else{
+      A[k] = left[i]
+      i++
+    }
+    k++
+  }
+}
+
+MergeSort(A, L, R){
+  if R - 1 < 2
+    return
+  M = (1+R)/2
+  MergeSort(L,M)
+  MergeSort(M,R)
+  Merge(A,L,M,R)
+}

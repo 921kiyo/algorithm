@@ -1,0 +1,14 @@
+// Assume N is sorted
+// N=[n1,n2...n]
+
+Binary_Search(A, l, r, k)
+  if(l >= r){
+    return False
+  }
+
+  M = l+(r-1)/2
+  if(A[M] == k) return M
+  else if(k < A[M]) Binary_Search(N, L, M, k)
+  else Binary_Search(N, M+1, R, k)
+
+  return False
