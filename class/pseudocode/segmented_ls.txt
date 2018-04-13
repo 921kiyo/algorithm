@@ -1,0 +1,13 @@
+Segmented_Least_Squares(n){
+  Array M[0...n]
+  Set M[0] = 0
+  For all pairs i <= j
+    Compute the least squares error ei,j for the segment pi,...pj
+  Endfor
+
+  For j = 1,2,...,n
+    Use OPT(j) = min [a<=i<=j] (ei,j + C + OPT(i-1))
+  Endfor
+
+  Return M[n]
+}

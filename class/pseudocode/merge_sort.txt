@@ -5,7 +5,7 @@ Merge(A, L, M, R){
   right = A[M,... R-1]
 
   i=j=0
-  k = 1 // index of merged array
+  k = L // index of merged array
 
   while k < R{
     if(i > (M-1)) or (j < (R-M) and right[j] < left[i]){
@@ -24,7 +24,7 @@ MergeSort(A, L, R){
   if R - 1 < 2
     return
   M = (1+R)/2
-  MergeSort(L,M)
-  MergeSort(M,R)
+  MergeSort(A,L,M)
+  MergeSort(A,M,R)
   Merge(A,L,M,R)
 }

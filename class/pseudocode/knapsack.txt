@@ -1,0 +1,10 @@
+Each requests i has both a value vi and a weight wi
+
+Max V, subject to not exceed W
+
+To find out the value for OPT(n), we not only need the value of OPT(n-1), but we also
+need to know the best solution we can get using a subset of the first n-1 items and total
+allowed weight W-Wn
+We will have a subproblem for each i =0,1,...n and each integer 0<=w<=W
+Use OPT(i,w) to denote the value of the optimal solution using a subset of the items
+{1,...i} with maximum allowed weight w
