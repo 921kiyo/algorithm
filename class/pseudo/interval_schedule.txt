@@ -1,0 +1,9 @@
+Compute-Opt(j)
+If j=0 then
+  Return 0
+Else if M[j] is not empty
+  Return M[j]
+Else
+  M[j] = max(vj+Compute-Opt(p(j)), Compute-Opt(j-1))
+  Return M[j]
+Endif
