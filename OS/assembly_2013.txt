@@ -1,1 +1,29 @@
+
+counter = n
+for while counter > 0
+
 100H A[0]
+101H A[1]
+102H A[2]
+...
+200H n
+201H B
+...
+300H 0
+301H 1
+302H 2
+303H 100H
+...
+400H LOAD  R0, [300H]
+401H LOAD  R1, [200H]
+402H LOAD  R2, [303H]
+403H IFZER R1, 40BH
+404H IFNEG R1, 40BH
+405H ADD   R0, [R2]
+406H ADD   R2, [301H] ; increment addr
+407H SUB   R1, [R2]
+408H ADD   R2, [301H] ; increment addr
+409H SUB   R1, [302H] : n = n - 2
+40AH GOTO  403H
+40BH STORE R0, [201H]
+40CH STOP
