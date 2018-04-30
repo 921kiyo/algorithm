@@ -5,8 +5,8 @@ while start_index < end_index
   start_value = Array[start_index]
   end_value = Array[end_index]
 
-  start_value = Array[end_index]
-  end_value = Array[start_index]
+  Array[end_index] = start_value
+  Array[start_index] = end_value
 
   start_index += 1
   end_index -= 1
