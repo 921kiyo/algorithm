@@ -1,22 +1,30 @@
 def init():
-    isTobacco = isPaper = isMatch = False
-    tobaccoSem = Semaphore(0)
-    paperSem = Semaphore(0)
-    matchSem = Semaphore(0)
+    riders = 0
+    mutex = semaphore)(1)
+    multi = sem(50)
+    bus = sem(0)
+    allaboard = sem(0)
 
-def pusherA():
-    tobacco.wait()
+def bus():
     mutex.wait()
-        if isPaper:
-            isPaper = False
-            matchSem.signal()
-        elif isMatch:
-            isMatch = False
-            paperSem.signal()
-        else
-            isTobacco = True
-    tobacco.signal()
+    if riders > 0:
+        bus.signal()
+        allaboard.wait()
+    mutex.signal()
+    depart()
 
-def tobacco():
-    if(isTobacco)
-    tobaccoSem.signal()
+def riders():
+    multi.wait()
+    mutex.wait()
+    riders += 1
+    mutex.signal()
+    bus.wait()
+
+    multi.signal()
+
+    boardBus()
+    riders -= 1
+    if riders == 0:
+        allaboard.signal()
+    else:
+        bus.signal()

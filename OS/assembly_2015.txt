@@ -19,7 +19,7 @@ end loop
 84H LOAD  R0, [R2]   ;  start_value =  A[start_index]
 85H LOAD  R1, [R3]   ;  end_value = A[end_index]
 86H STORE R0  [R3]   ;  start_value = A[end_index]
-87H STORE R1  [R2]   ;  env_value = A[start_index]
+87H STORE R1  [R2]   ;  end_value = A[start_index]
 88H INC R2           ;  start_index += 1
 89H DEC R3           ;  end_index -= 1
 8AH JGT R2 R3, 84H   ;  while start_index < end_index

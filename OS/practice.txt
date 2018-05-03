@@ -1,0 +1,10 @@
+
+
+80H LOAD R0, [100H] ; sum = 0
+81H LOAD R1, [104H]  ; start index
+82H LOAD R2, [103H] ; counter = n
+83H IFZER R2, XX
+84H IFNEG R2, XX
+85H ADD R0, [R1]
+86H ADD R1, [101H]
+87H SUB R0, [R1]
