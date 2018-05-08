@@ -1,0 +1,10 @@
+void search(Node root){
+  if(root == NULL) return
+
+  visit(root)
+  root.visited = true
+  for each i in root.adjacent(){
+    if i.visited == false
+      search(i)
+  }
+}

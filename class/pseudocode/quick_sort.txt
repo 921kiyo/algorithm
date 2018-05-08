@@ -1,3 +1,4 @@
+
 QuickSort(A, L, R){
   if R < L+2
     return

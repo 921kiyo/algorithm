@@ -34,4 +34,15 @@ class MultiStack:
         offset = stacknum * self.stacksize
         return offset + self.sizes[stacknum] - 1
 
-ffdhkjajh
+def ThreeInOne():
+    newstack = MultiStack(2)
+    print(newstack.IsEmpty(1))
+    newstack.Push(3, 1)
+    print(newstack.Peek(1))
+    print(newstack.IsEmpty(1))
+    newstack.Push(2, 1)
+    print(newstack.Peek(1))
+    print(newstack.Pop(1))
+
+
+ThreeInOne()
