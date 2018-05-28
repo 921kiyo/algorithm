@@ -1,0 +1,10 @@
+DFS(Node root){
+  if (root == NULL) return;
+  visit(root)
+  root.visited = true
+  for each(Node in root.adjacent){
+    if(n.visited == false){
+      search(n)
+    }
+  }
+}
