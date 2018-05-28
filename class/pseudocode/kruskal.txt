@@ -1,0 +1,7 @@
+Kruskal(G = (V, E)) // connected weighted graph
+  Sort all edges in G by weight
+  Put each vertex in G into a separate set
+  For (u, v) subset of E in order
+    if u and v are in different set
+      Add(e,v) to the MST
+      Combine u's set with v's set

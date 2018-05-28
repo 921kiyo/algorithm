@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 DFS(Node root){
   if (root == NULL) return;
   visit(root)
@@ -6,5 +7,15 @@ DFS(Node root){
     if(n.visited == false){
       search(n)
     }
+=======
+void search(Node root){
+  if(root == NULL) return
+
+  visit(root)
+  root.visited = true
+  for each i in root.adjacent(){
+    if i.visited == false
+      search(i)
+>>>>>>> a296060eedf447daf96a3bcf20e26a363d55cb19
   }
 }
