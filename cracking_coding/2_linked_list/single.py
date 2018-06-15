@@ -45,6 +45,7 @@ class LinkedList:
 
     def delete(self, key):
         temp = self.head
+        prev = None
 
         while(temp is not None):
             if temp.data == key:
@@ -55,8 +56,12 @@ class LinkedList:
         if(temp == None):
             return
 
+        if prev is not None:
+            prev.next = temp.next
+        else:
+            temp = self.head
+            self.head = temp.next
 
-        prev.next = temp.next
 
         temp = None
 
