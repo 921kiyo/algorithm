@@ -43,7 +43,6 @@ def string_comp2(string):
             return comp_string
     return string
 
-
 print(string_comp2("aabcccccaaa"))
 print(string_comp2("abcd"))
 print(string_comp2("aabb"))
