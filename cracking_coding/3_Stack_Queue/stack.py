@@ -3,13 +3,13 @@ class Stack():
     def __init__(self, limit):
         self.top = 0
         self.stack = []
-    
+
     def push(self, x):
         self.stack.append(x)
         self.top += 1
         return True
 
-    def pop(self):        
+    def pop(self):
         if(self.isEmpty()):
             return str(-maxsize - 1) # return negative infinity
 
