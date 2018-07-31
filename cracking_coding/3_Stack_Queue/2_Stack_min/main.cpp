@@ -22,17 +22,21 @@ class StackMin{
 private:
   int stackSize;
   NodeWithMin * head;
-  vector<int>stack;
 public:
   StackMin():stackSize(0), head(nullptr){}
 
   void push(int item){
     if(isEmpty()){
+      // next is null
       head = new NodeWithMin(item, nullptr);
+      // minimum is head since there is only one element
       head->minimum = head;
     }
+    // If new item is smaller than minimum
     else if(item <= head->minimum->data){
+      // next is previous minimum head
       head = new NodeWithMin(item, head);
+      // this head is the minimum
       head->minimum = head;
     }else{
       head = new NodeWithMin(item, head);
