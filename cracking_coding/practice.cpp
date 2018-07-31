@@ -1,44 +1,75 @@
 #include <iostream>
+#include <cstdlib>
 
 using namespace std;
 
-const int MAX = 100;
-
-class Stack{
-  int index;
-  int stack[MAX];
-public:
-  Stack(){
-    index = -1;
+class MultiStack{
+private:
+  static const int numStack = 3;
+  int stackCapacity;
+  int* stackCapacityUsed;
+  int* stackArray;
+  
+  int indexOfTop(int stackNum){
+    int startIndex = stackNum*stackCapacity;
+    int capacity = stackCapacityUsed[stackNum];
+    return (startIndex+capacity-1);
   }
-  bool push(int x){
-    if(index > MAX){
-      cout << "Stack overflow" << endl;
-      return false;
+
+public:
+  MultiStack(int capacity){
+    stackCapacity = capacity;
+    stackArray = new int[capacity*numStack]();
+    stackCapacityUsed = new int[numStack]();
+  }
+
+  ~MultiStack(){
+    delete [] stackArray;
+    delete [] stackCapacityUsed;
+  }
+
+  void push(int stackNum, int data){
+    if(isFull(stackNum)){
+      cout << "Stack " << stackNum << " is full." << endl;
+      exit(1);
     }else{
-      stack[++index] = x;
-      return true;
+      stackCapacityUsed[stackNum]++;
+      stackArray[indexOfTop(stackNum)] = data;
     }
   }
-  int pop(){
-    if(index < 0){
-      cout << "Stack underflow" << endl;
-      return -1;
+
+  int pop(int stackNum){
+    if(isEmpty(stackNum)){
+      cout << "Stack " << stackNum << " is empty." << endl;
+      exit(1);
     }else{
-      int x = stack[index--];
-      return x;
+      int data = stackArray[indexOfTop(stackNum)];
+      stackArray[indexOfTop(stackNum)] = 0;
+      stackCapacityUsed[stackNum]--;
+      return data;
+    }
+  }
+
+  bool isFull(int stackNum){
+    return (stackCapacityUsed[stackNum] == stackCapacity);
+  }
+
+  bool isEmpty(int stackNum){
+    return (stackCapacityUsed[stackNum] == 0);
+  }
+
+  int top(int stackNum) {
+    if(isEmpty(stackNum)){
+      cout << "Stack " << stackNum << " is empty." << endl;
+      exit(1);
+    }else{
+      return stackArray[indexOfTop(stackNum)];
     }
   }
 };
 
 int main(){
-  Stack stack;
-  stack.push(10);
-  stack.push(20);
-  stack.push(30);
-  cout << stack.pop() << endl;
-  cout << stack.pop() << endl;
-  cout << stack.pop() << endl;
-  cout << stack.pop() << endl;
+  MultiStack stack(10);
+  stack.push(1,1);
   return 0;
 }
