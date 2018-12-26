@@ -23,38 +23,29 @@ class Stack(object):
             return None
         return self.items[-1]
 
-class MaxStack(Stack):
+class MaxStack(object):
     def __init__(self):
-        super().__init__()
-        self.max_int = None
-        self.max_stack = []
-        self.pointer = -1   
+        self.stack = Stack()
+        self.max_stack = Stack()
     
     def push(self, item):
-        if self.max_int == None or self.max_int < item:
-            self.max_int = item
-            self.max_stack.append(item)
-            self.pointer += 1
-
-        super().push(item)
+        self.stack.push(item)
+        if self.max_stack.peek() is None or self.max_stack.peek() < item:
+            self.max_stack.push(item)
 
     def pop(self):
-        
-        popping = super().pop()
+        popping = self.stack.pop()
 
         if not popping:
             return None
-        print("max stack ", self.max_stack)        
 
-        if popping == self.max_int:
+        if popping == self.max_stack.peek():
             self.max_stack.pop()
-            self.pointer -= 1
-            self.max_int = self.max_stack[self.pointer]
 
         return popping
 
     def get_max(self):
-        return self.max_int
+        return self.max_stack.peek()
 
 if __name__ == "__main__":
     max_stack = MaxStack()
